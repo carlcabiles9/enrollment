@@ -1,0 +1,46 @@
+<%= form_with(model: student, local: true) do |form| %>
+  
+  <% if student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+        <% student.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<top>
+  <div class="container bg-light">
+  <div class="field" ><br>
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+  
+  <div class="field"><br>
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+  <div class="field"><br><tab>
+    <%= form.label :course %>
+    <%= form.text_field :course %>
+  </div>
+
+  <div class="field"><br>
+    <%= form.label :age %>
+    <%= form.number_field :age %>
+  </div>
+ 
+  <div class="field">
+    <%= form.label :birthday %>
+    <%= form.datetime_select :birthday %><br>
+    SELECT SUBJECTS:
+    <%= form.select :subject_ids, options_from_collection_for_select(Subject.all.sort_by(&:name), :id, :name, form.object.subject_ids), {}, include_blank: true, multiple: true, class: "collect-form col-md-12" %>
+  </div><br>
+
+  <div class="actions" class="btn btn-primary">
+    <%= form.submit %>
+  </div></div>
+  
+<% end %>
