@@ -1,0 +1,13 @@
+p#notice = notice
+p
+  strong Subject:
+  = @student_subject.subject_id 
+
+
+p
+  strong Student:
+  = @student_subject.student_id 
+
+
+= link_to 'Edit', edit_student_subject_path(@student_subject)  |
+= link_to 'Back', student_subjects_path 

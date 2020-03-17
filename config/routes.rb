@@ -4,6 +4,14 @@ Rails.application.routes.draw do
   resources :subjects
   resources :students
   get 'students/:id/destroy', to: 'students#destroy_student', as: :deletestudent
-
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  devise_scope :user do
+    authenticated :user do
+      root 'students#index', as: :authenticated_root
+    end
+      unauthenticated do
+        root 'devise/sessions#new' , as: :unauthenticated_root
+    end
+  end
+  
 end
