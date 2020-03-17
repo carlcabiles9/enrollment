@@ -12,6 +12,7 @@ gem 'puma', '~> 4.1'
 gem 'rubocop', require: false
 gem 'scss_lint', require: false
 gem 'cancancan'
+gem 'rolify'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker

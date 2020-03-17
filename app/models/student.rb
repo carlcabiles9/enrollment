@@ -4,6 +4,6 @@ class Student < ApplicationRecord
     
     has_one_attached :avatar
     validates :last_name,:course,:first_name, presence: true
-   
+    resourcify
                     
 end
