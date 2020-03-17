@@ -10,6 +10,8 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
+    @students = Student.find(params[:id])
+    authorize! :read, @students
   end
 
   # GET /students/new
