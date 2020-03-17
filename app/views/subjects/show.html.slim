@@ -1,0 +1,24 @@
+p#notice = notice 
+
+p
+   strong Name:
+  = @subject.name 
+ 
+
+p
+   strong Description:
+  = @subject.description 
+ 
+
+p
+   strong Code:
+  = @subject.code 
+ 
+Enrolled Students:<br>
+   @subject.students.each do |s| 
+    td = s.first_name 
+    td = s.last_name 
+     end 
+
+= link_to 'Edit', edit_subject_path(@subject)  |
+= link_to 'Back', subjects_path 
