@@ -11,7 +11,7 @@ class StudentsController < ApplicationController
   # GET /students/1.json
   def show
     @students = Student.find(params[:id])
-    authorize! :read, @students
+   
   end
 
   # GET /students/new
@@ -32,9 +32,14 @@ class StudentsController < ApplicationController
       if @student.save
         format.html { redirect_to @student, notice: 'Student was successfully created.' }
         format.json { render :show, status: :created, location: @student }
+        UserMailer.with(user: @user).welcome_email.deliver_later
+        format.html { redirect_to(@user, notice: 'User was successfully created.') }
+        format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render :new }
         format.json { render json: @student.errors, status: :unprocessable_entity }
+        format.html { render action: 'new' }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end

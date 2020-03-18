@@ -1,21 +1,21 @@
 = form_with(model: student_subject, local: true) do |form| 
-   if student_subject.errors.any? 
+  -if student_subject.errors.any? 
     div id="error_explanation"
-      h2 = pluralize(student_subject.errors.count, "error")  prohibited this student_subject from being saved:
-
+    h2 = pluralize(@student.errors.count, "error")
+    | prohibited this student from being saved:
       ul
          student_subject.errors.full_messages.each do |message| 
           li = message 
          end 
       ul
     
-  div.field
-    = form.label :subject_id 
-    = form.text_field :subject_id 
+    div.field
+      = form.label :subject_id 
+      = form.text_field :subject_id 
 
-  div.field
-    = form.label :student_id 
-    = form.text_field :student_id 
-  div.actions
-    = form.submit 
+    div.field
+      = form.label :student_id 
+      = form.text_field :student_id 
+    div.actions
+      = form.submit 
  

@@ -7,10 +7,11 @@ table
     tr
       th.Subject
       th.Student
-      th.colspan="3"
+      th.colspan.3
+    
    
   tbody
-     @student_subjects.each do |student_subject| 
+     -@student_subjects.each do |student_subject| 
       tr
         td.= student_subject.subject_id 
         td.= student_subject.student_id 

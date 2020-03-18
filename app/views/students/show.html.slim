@@ -1,27 +1,26 @@
-
 table.table.table-bordered
 = image_tag @student.avatar.variant(resize_to_limit: [100, 100]) 
-<p>
+p
   strong Last name:
   = @student.last_name
-<p>
-  strongFirst name:
+p
+  strong First name:
   = @student.first_name 
 
 
-<p>
-  strongCourse:
+p
+  strong Course:
   = @student.course 
 
-<p>
-  strongAge:
+p
+  strong Age:
   = @student.age 
 
 
-<p>
-  strongBirthday:
+p
+  strong Birthday:
   = @student.birthday 
 
 
-= link_to 'Edit', edit_student_path(@student) |
+= link_to 'Edit', edit_student_path(@student) 
 = link_to 'Back', students_path 
